@@ -1,5 +1,6 @@
 import * as React from "react";
 import { useTable } from "react-table";
+import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 
 function MyTable({data, onDelete}) {
 
@@ -25,6 +26,12 @@ function MyTable({data, onDelete}) {
       },
       {
         Header: " ",
+        Cell: () => (
+          <div style={{position:'absolute', left:'50px'}}>
+            <a style={{ marginRight: "15px" }}><AiOutlineEdit className="tableButtons"/></a>
+            <a><AiOutlineDelete className="tableButtons"/></a>
+          </div>
+        ),
       },
     ],
     []

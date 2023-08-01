@@ -437,3 +437,13 @@ tbody td:hover:before {
 .nav-links a:hover {
   color: #000000;
 }
+
+.tableButtons{
+  color: #060606;
+  font-size: 20px;
+  transition: color 0.4s;
+  cursor: pointer;
+}
+.tableButtons:hover{
+  color: #5a5a5a;
+}
