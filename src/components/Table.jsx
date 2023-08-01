@@ -26,10 +26,14 @@ function MyTable({data, onDelete}) {
       },
       {
         Header: " ",
-        Cell: () => (
-          <div style={{position:'absolute', left:'50px'}}>
-            <a style={{ marginRight: "15px" }}><AiOutlineEdit className="tableButtons"/></a>
-            <a><AiOutlineDelete className="tableButtons"/></a>
+        Cell: ({ row }) => (
+          <div style={{ position: 'absolute', left: '50px' }}>
+            <a style={{ marginRight: "15px" }}>
+              <AiOutlineEdit className="tableButtons" />
+            </a>
+            <a onClick={() => onDelete(row.original.id)}>
+              <AiOutlineDelete className="tableButtons" />
+            </a>
           </div>
         ),
       },

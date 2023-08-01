@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef }  from 'react'
 import { AiOutlineDown, AiOutlineUp, AiFillLinkedin, AiFillFacebook, AiFillTwitterSquare} from 'react-icons/ai';
 import { CiMap, CiPhone, CiMail } from 'react-icons/ci';
 
-import { createCustomer, fetchCustomers } from './methods';
+import { createCustomer, fetchCustomers, deleteCustomer } from './methods';
 
 import useIsInViewport from './components/IsInViewport';
 import { AddCustomerForm } from './components/AddForm';
@@ -18,17 +18,27 @@ function App() {
   }, []);
 
   const AddCustomerHandler = (name, surname, email, phone_number) => {
-    createCustomer({ name, surname, email, phone_number }).then(() => {
-      fetchCustomers().then(setData);
-    });
+    createCustomer({ name, surname, email, phone_number })
+      .then(() => {
+        console.log("Customer successfully created.");
+        fetchCustomers().then((data) => setData(data));
+      })
+      .catch((error) => {
+        console.error("Error creating customer:", error);
+      });
   };
-
+  
   const deleteCustomerHandler = (customerId) => {
     deleteCustomer(customerId)
       .then(() => {
-        fetchCustomers().then(setData);
+        console.log("Successfully deleted customer with id:", customerId);
+        fetchCustomers().then((data) => setData(data));
       })
+      .catch((error) => {
+        console.error("Error deleting customer:", error);
+      });
   };
+
 
   const refs = Array.from({ length: 35 }, () => useRef(null));
 
@@ -53,7 +63,7 @@ function App() {
       <div id='about' style={{ height: '910px', width: '100%', backgroundColor: 'white', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <div style={{position: 'relative', width: '1200px', height: '800px'}}>
           <div style={{position: 'absolute', top: '15%', left: '5%'}}>
-            <img src="/site/IMG_3570.png" alt="XD Placeholder" />
+            <img src="/IMG_3570.png" alt="XD Placeholder" />
           </div>
           <div style={{ display: 'flex',position: 'absolute', top: '10%', left: '8%' }}>
             <div ref={refs[0]} style={{display: 'flex'}}>
@@ -97,10 +107,10 @@ function App() {
           </div>
           <div ref={refs[14]} className={`slideInbottomVisable ${isInViewport[14] ? 'animated' : ''}`} style={{border: '16px solid', borderColor:'#d9d9d3',backgroundColor:'#d9d9d3', height: '420px', width: '600px', position:'absolute', top:'29%', left: '45%'}}></div>
           <div ref={refs[15]} className={`slideInbottom ${isInViewport[15] ? 'animated' : ''}`} style={{position: 'absolute', top: '29%', right: '11%'}}>
-            <img src="/site/react.png" alt="React" width={'505px'}/>
+            <img src="/react.png" alt="React" width={'505px'}/>
           </div>
           <div ref={refs[16]} className={`slideInbottom ${isInViewport[16] ? 'animated' : ''}`} style={{position: 'absolute', top: '54%', right: '12%'}}>
-            <img src="/site/javascript.png" alt="JavaScript" width={'475px'}/>
+            <img src="/javascript.png" alt="JavaScript" width={'475px'}/>
           </div>
         </div>
       </div>
@@ -131,10 +141,10 @@ function App() {
           </div>
           <div ref={refs[7]} className={`slideInbottomVisable ${isInViewport[7] ? 'animated' : ''}`} style={{opacity: '1' , border: '16px solid', borderColor:'#d9d9d3',backgroundColor:'#d9d9d3', height: '420px', width: '600px', position:'absolute', top:'32%', right: '45%'}}></div>
           <div ref={refs[8]} className={`slideInbottom ${isInViewport[8] ? 'animated' : ''}`} style={{position: 'absolute', top: '31%', left: '12%'}}>
-            <img src="/site/python.png" alt="Python" width={'450px'}/>
+            <img src="/python.png" alt="Python" width={'450px'}/>
           </div>
           <div ref={refs[9]} className={`slideInbottom ${isInViewport[9] ? 'animated' : ''}`} style={{position: 'absolute', top: '55%', left: '12%'}}>
-            <img src="/site/fastapi.png" alt="FastApi" width={'450px'}/>
+            <img src="/fastapi.png" alt="FastApi" width={'450px'}/>
           </div>
         </div>
       </div>
