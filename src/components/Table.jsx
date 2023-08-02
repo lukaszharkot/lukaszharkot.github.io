@@ -45,7 +45,7 @@ function MyTable({data, onDelete}) {
     useTable({ columns, data });
 
   return (
-    <div style={{ height: "492px", width: '692px', overflow: "auto", borderRadius: '9px'}}>
+    <div style={{ height: "485px", width: '692px', overflow: "auto", borderRadius: '9px'}}>
       <table
         {...getTableProps()}
         style={{ fontSize: "11px", tableLayout: "fixed", width: "100%" }}

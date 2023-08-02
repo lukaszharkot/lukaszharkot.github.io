@@ -166,7 +166,7 @@ function App() {
             <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>Add Customer</p>
           </div>
           <div ref={refs[21]} className={`appear ${isInViewport[21] ? 'animated' : ''}`} style={{backgroundColor: 'white', height: '492px', width: '692px', position:'absolute', top: '41.5%', left: '5%', justifyContent: 'center', alignItems:'center', display: 'flex', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)', border: '4px solid', borderColor: '#262626', borderRadius: '20px'}}>
-            <div style={{ height: '492px', width: '692px', justifyContent: 'center', alignItems:'center', display: 'flex',}}>
+            <div style={{ height: '492px', width: '692px', justifyContent: 'center', display: 'flex',}}>
               <MyTable data={data}  onDelete={deleteCustomerHandler}/>
             </div>
           </div>
