@@ -25,7 +25,7 @@ a {
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 220px;
   min-height: 100vh;
 }
 
@@ -55,9 +55,9 @@ body {
 .test{
   background-color: rgba(217, 217, 211, 1);
   position: absolute;
-  top: 94%; /* Adjust the value to control the vertical position */
-  left: 43%; /* Adjust the value to control the horizontal position */
-  width: 160px; /* Adjust the value to control the width of the overlay div */
+  top: 94%;
+  left: 43%;
+  width: 160px;
   height: 30px;
   display: flex;
   align-items: center;
@@ -75,6 +75,166 @@ body {
   font-weight: lighter;
   font-family: "Lucida" Grande, sans-serif;
   font-size: 130px;
+}
+
+.blackbar{
+  height: 90px;
+  width: 100%;
+  background-color: black;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+}
+
+.about{
+  height: 910px;
+  width: 100%; 
+  background-color: white;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.aboutbox{
+  width: 1200px;
+  height: 800px;
+}
+
+.aboutimage{
+  position: absolute;
+  top: 15%;
+  left: 5%;
+}
+
+.about-image 
+
+.abouttext{
+  display: flex;
+  position: absolute;
+  top: 10%; 
+  left: 8%;
+  z-index: 2;
+}
+
+.aboutblack{
+  position: absolute;
+  background-color: black; 
+  height: 450px;
+  width: 700px;
+  top: 22%;
+  left: 38%;
+}
+
+.abouttextbox{
+  height: 350px;
+  width: 600px;
+}
+
+.frontend{
+  height: 1050px;
+  width: 100%;
+  justify-content: center; 
+  align-items:center;
+  display: flex;
+}
+
+.frontendbox{
+  width: 1200px;
+  height: 900px;
+}
+
+.react-image{
+  width: 505px;
+}
+
+.java-image{
+  width: 475px;
+}
+
+.frontendtext{
+  background-color: black;
+  width: 250px;
+  height: 80px;
+}
+
+.frontendtextbox{
+  height: 530px;
+  width: 400px;
+}
+
+.frontendblack{
+  background-color: black;
+  height: 630px;
+  width: 500px;
+  position: absolute;
+  top: 22%;
+  left: 5%;
+}
+
+.frontendbackplate{
+  height: 450px;
+  width: 600px;
+  position: absolute;
+  top: 29%;
+  left: 45%;
+  z-index: 1;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d3;;
+}
+
+.backend{
+  height: 1000px;
+  width: 100%;
+  justify-content: center; 
+  align-items:center;
+  display: flex;
+}
+
+.backendbox{
+  width: 1200px;
+  height: 900px;
+}
+
+.fastapi-image{
+  width: 450px;
+}
+
+.pyhon-image{
+  width: 450px;
+}
+
+.backendtext{
+  background-color: black;
+  width: 250px;
+  height: 80px;
+}
+
+.backendtextbox{
+  height: 515px;
+  width: 400px;
+}
+
+.backendblack{
+  background-color: black;
+  height: 615px;
+  width: 500px;
+  position: absolute;
+  top: 25%;
+  right: 5%;
+}
+
+.backendbackplate{
+  height: 450px;
+  width: 600px;
+  position: absolute;
+  top: 32%;
+  right: 45%;
+  z-index: 1;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  background-color: #d9d9d3;
 }
 
 h1 {
@@ -96,13 +256,23 @@ h2 {
   padding: 0 10px;
 }
 
-.custom-image {
-  height: 20px; /* Adjust the height as needed */
-}
-
 .centered {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.centeredabout{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.centeredfrontend {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+.centeredbackend {
+  display: grid;
   justify-content: center;
   align-items: center;
 }
@@ -149,10 +319,12 @@ button:focus-visible {
 
 input{
   background-color: white;
-  transition: background-color 0.8s;
+  height: 15px;
+  transition: height 0.1s ease-out ,background-color 0.5s;
 }
 input:hover{
   background-color: #e9e7e7;
+  height: 20px;
 }
 
 .end {
@@ -174,7 +346,7 @@ td {
   padding: 15px;
   background-color: rgb(255, 255, 255);
   color: #fff;
-  vertical-align: top;
+  vertical-align: middle;
   max-height: 25px;
 }
 th {
@@ -187,7 +359,7 @@ thead th {
   background-color: #262626;
 }
 tbody tr:hover {
-  background-color: rgba(255, 255, 255, 0.3);
+  height: 70px;
 }
 tbody td {
   position: relative;
@@ -202,18 +374,162 @@ tbody td:hover:before {
   background-color: rgba(255, 255, 255, 0.2);
   z-index: -1;
 }
+tr{
+  height: 48px;
+  transition: height 0.2s ease-out;
+}
 
-@media (prefers-color-scheme: light) {
+.mytable{
+  height: 485px;
+  width: 692px;
+  overflow: auto;
+  border-radius: 9px;
+}
+
+.inputform{
+  width: 450px; 
+  padding: 10px 5px 10px; 
+  border-radius: 7px; 
+  font-family: monospace;
+  color: black; 
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 1024px) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: rgba(6, 6, 6, 0.87);
+    background-color: #d9d9d3;
+    width: 100%;
   }
-  a:hover {
-    color: #747bff;
+  .border{
+    width: 300px;
+    height: 400px;
   }
-  button {
-    background-color: #f9f9f9;
+  .bigfont{
+    font-size: 90px;
+    position: absolute;
+    left: 20px;
   }
+  .test{
+    left: 24%;
+    top: 96%;
+  }
+  .blackbar{
+    height: 0px;
+  }
+  .centeredabout{
+    align-items: baseline;
+    justify-content: baseline;
+  }
+  .about{
+    background-color: white;
+    height: auto;
+  }
+  .aboutbox{
+    width: 100%;
+    height: auto;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
+    
+  }
+  .aboutimage{
+    left:0;
+    position: static;
+    height: auto;
+  }
+  .about-image{
+    width: 90%;
+    position: static;
+    padding: 5%;
+    height: auto;
+  }
+  .abouttext{
+    position: static;
+    height: auto;
+    padding-top: 40px;
+  }
+  .aboutblack{
+    position: static;
+    width: 100%;
+  }
+  .abouttextbox{
+    width: 90%;
+    height: auto;
+  }
+  .frontend{
+    height: auto;
+    display: grid;
+    padding-top: 80px;
+    align-items: baseline;
+    width: 100%;
+  }
+  .frontendbox{
+    width: 100%;
+    height: auto;
+  }
+  .react-image{
+    margin-top: 20px;
+    width: 200px;
+  }
+  .java-image{
+    width: 200px;
+    margin-bottom: 40px;
+  }
+  .frontendtextbox{
+    height: auto;
+    width: 85%;
+  }
+  .frontendblack{
+    position: static;
+    width: 100%;
+    height: 700px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 -3px 10px rgba(0, 0, 0, 0.5);
+  }
+  .frontendbackplate{
+    position: static;
+    width: 100%;
+    height: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+  .backend{
+    height: auto;
+    display: grid;
+    padding-top: 80px;
+    align-items: baseline;
+    width: 100%;
+  }
+  .backendbox{
+    width: 100%;
+    height: auto;
+  }
+  .fastapi-image{
+    margin-top: 20px;
+    width: 200px;
+  }
+  .python-image{
+    width: 200px;
+    margin-bottom: 40px;
+  }
+  .backendtextbox{
+    height: auto;
+    width: 85%;
+  }
+  .backendblack{
+    position: static;
+    width: 100%;
+    height: 700px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5), 0 -3px 10px rgba(0, 0, 0, 0.5);
+  }
+  .backendbackplate{
+    position: static;
+    width: 100%;
+    height: auto;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+  }
+
 }
 
 @keyframes appearAnimation {

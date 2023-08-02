@@ -27,7 +27,7 @@ function MyTable({data, onDelete}) {
       {
         Header: " ",
         Cell: ({ row }) => (
-          <div style={{ position: 'absolute', left: '50px' }}>
+          <div >
             <a style={{ marginRight: "15px" }}>
               <AiOutlineEdit className="tableButtons" />
             </a>
@@ -45,7 +45,7 @@ function MyTable({data, onDelete}) {
     useTable({ columns, data });
 
   return (
-    <div style={{ height: "485px", width: '692px', overflow: "auto", borderRadius: '9px'}}>
+    <div className="mytable">
       <table
         {...getTableProps()}
         style={{ fontSize: "11px", tableLayout: "fixed", width: "100%" }}

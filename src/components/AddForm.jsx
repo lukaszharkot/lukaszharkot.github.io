@@ -16,28 +16,28 @@ export const AddCustomerForm = ({ onAdd }) => {
     };
 
     return (
-        <form onSubmit={onSubmitHandler}>
+        <form onSubmit={onSubmitHandler} style={{position:'relative'}}>
             <Input
                 placeholder = "Name"
-                style={{width: '450px', padding: '10px 5px 10px', borderRadius:'7px', fontFamily: 'monospace', color: 'black', marginBottom: '5px'}}
+                className="inputform"
                 value = {name}
                 onChange = {(e) => setName(e.currentTarget.value)}
             />
             <Input
                 placeholder = "Surname"
-                style={{ width: '450px', padding: '10px 5px 10px', borderRadius:'7px', fontFamily: 'monospace', color: 'black', marginBottom: '5px'}}
+                className="inputform"
                 value = {surname}
                 onChange = {(e) => setSurname(e.currentTarget.value)}
             />
             <Input
                 placeholder = "Email"
-                style={{ width: '450px', padding: '10px 5px 10px', borderRadius:'7px', fontFamily: 'monospace', color: 'black', marginBottom: '5px'}}
+                className="inputform"
                 value = {email}
                 onChange = {(e) => setEmail(e.currentTarget.value)}
             />
             <Input
                 placeholder = "Phone number"
-                style={{ width: '450px', padding: '10px 5px 10px', borderRadius:'7px', fontFamily: 'monospace', color: 'black', marginBottom: '15px'}}
+                className="inputform"
                 value = {phone_number}
                 onChange = {(e) => setPhone_number(e.currentTarget.value)}
             />
