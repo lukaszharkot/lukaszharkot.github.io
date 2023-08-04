@@ -46,24 +46,28 @@ function App() {
   return (
     <>
       <Navbar/>
-      <div id='home' className='container'>
-        <a href='#about'>
-          <div className='overlay'>
-            <div className='border'>
-              <p className='bigfont'>Łukasz Harkot</p>
+      <div className='bg'></div>
+        <div id='home' className='container'>
+          <a href='#about'>
+            <div className='overlay'>
+              <div className='border'>
+                <p className='bigfont'>Łukasz</p>
+                <p className='bigfont'>Harkot</p>
+              </div>
+              <div className='cut-border'></div>
+              <div className='test'>
+                <p className='smallfont' style={{fontFamily: 'monospace'}}>Scroll Down</p><AiOutlineDown/>
+              </div>
             </div>
-            <div className='test'>
-              <p className='smallfont' style={{fontFamily: 'monospace'}}>Scroll Down</p><AiOutlineDown/>
-            </div>
-          </div>
-        </a>  
-      </div>
+          </a>  
+        </div>
+      
       {/* About Me */}
       <div id='about' className='about'>
-        <div className='centeredabout aboutbox' style={{position: 'relative'}}>
-          <div className= 'aboutbox' style={{position: 'relative'}}>
-            <div className='abouttext centered'>
-              <div ref={refs[0]} style={{display: 'flex'}}>
+        <div className='centeredabout aboutbox'>
+          <div className= 'aboutbox'>
+            <div className='abouttext'>
+              <div className='abouttextI' ref={refs[0]}>
                 <div className={`slideInleft ${isInViewport[0] ? 'animated' : ''} centered`} style={{ animationDuration: '0.75s', backgroundColor: 'black', width:' 170px', height: '80px' }}>
                   <h1 style={{color: 'white'}}>About</h1>
                 </div>
@@ -86,8 +90,8 @@ function App() {
       <div className='blackbar'></div>
       {/* Frontend */}
       <div id='frontend' className='frontend'>
-        <div className='centered frontendbox' style={{position: 'relative'}}>
-          <div className='frontendbox' style={{position: 'relative'}}>
+        <div className='centered frontendbox'>
+          <div className='frontendbox'>
             <div className='centeredfrontend'>
               <div ref={refs[10]} className={`slideInbottom ${isInViewport[10] ? 'animated' : ''} centered frontendtext`}>
                 <h1 style={{color: '#d9d9d3'}}>Frontend</h1>
@@ -191,7 +195,7 @@ function App() {
       </div>
       <div style={{ height: '90px', width: '100%', backgroundColor: 'black', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)'}}></div>
       {/* Contact */}
-      <div id='contact' style={{ height: '850px', width: '100%', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
+      <div id='contact' style={{ height: '850px', width: '100%', justifyContent: 'center', alignItems:'center', display: 'flex', backgroundColor: '#d9d9d3'}}>
         <div style={{position: 'relative', width: '1200px', height: '700px'}}>
             <div ref={refs[24]} className={`appear ${isInViewport[24] ? 'animated' : ''}`} style={{ position: 'absolute', top: '11%', left: '37%' , backgroundColor: 'black', width:' 210px', height: '80px', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
               <h1 style={{color: 'white'}}>Contact</h1>

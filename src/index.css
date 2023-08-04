@@ -35,8 +35,34 @@ body {
   align-items: center;
   justify-content: center;
   border: 4px solid;
+  border-bottom: 0px;
   width: 900px;
   height: 275px;
+}
+
+.cut-border {
+  position: relative;
+  width: 180px;
+  left: 364px;
+  bottom: 0px;
+}
+.cut-border::before,
+.cut-border::after {
+  content: "";
+  position: absolute;
+  width: 360px; /* Adjust the width to control the size of the cut */
+  height: 0px;
+  border: 2px solid;
+  background-color: black; /* Height of the cut line */ /* Color of the cut line */
+  z-index: 2;
+}
+.cut-border::before {
+  left: 0;
+  transform: translateX(-100%);
+}
+.cut-border::after {
+  right: 0;
+  transform: translateX(100%);
 }
 
 .upclick{
@@ -53,16 +79,15 @@ body {
 }
 
 .test{
-  background-color: rgba(217, 217, 211, 1);
+  background-color: transparent;
   position: absolute;
-  top: 94%;
-  left: 43%;
+  top: 95.2%;
+  left: 41.5%;
   width: 160px;
   height: 30px;
   display: flex;
   align-items: center;
   justify-content: space-evenly; 
-  
 }
 
 .smallfont{
@@ -75,6 +100,8 @@ body {
   font-weight: lighter;
   font-family: "Lucida" Grande, sans-serif;
   font-size: 130px;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .blackbar{
@@ -96,7 +123,8 @@ body {
 
 .aboutbox{
   width: 1200px;
-  height: 800px;
+  height: 900px;
+  position: relative;
 }
 
 .aboutimage{
@@ -108,10 +136,18 @@ body {
 .about-image 
 
 .abouttext{
-  display: flex;
+  z-index: 2;
   position: absolute;
-  top: 10%; 
-  left: 8%;
+  top: 205%;
+  width: 200px;
+  height: 200px;
+}
+
+.abouttextI{
+  display: flex;
+  position: relative;
+  left: 13%;
+  top: 85px;
   z-index: 2;
 }
 
@@ -135,9 +171,11 @@ body {
   justify-content: center; 
   align-items:center;
   display: flex;
+  background-color: #d9d9d3;
 }
 
 .frontendbox{
+  position: relative;
   width: 1200px;
   height: 900px;
 }
@@ -189,9 +227,11 @@ body {
   justify-content: center; 
   align-items:center;
   display: flex;
+  background-color: #d9d9d3;
 }
 
 .backendbox{
+  position: relative;
   width: 1200px;
   height: 900px;
 }
@@ -277,13 +317,29 @@ h2 {
   align-items: center;
 }
 
+.bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('/bg.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: blur(2.5px);
+  z-index: -1;
+  animation: 2s appearAnimation 0s ease backwards;
+}
+
 .container {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Ensure the container takes up at least the full viewport height */
+  min-height: 100vh;
+  position: relative;
+  z-index: 1;
 }
-
 .overlay {
   transition: border-color 0.4s, color 0.4s;
   cursor: pointer;
@@ -292,8 +348,8 @@ h2 {
   animation: 2s appearAnimation 0.5s ease forwards;
 }
 .overlay:hover{
-  color: #6b6b6b;
-  border-color:#6b6b6b;
+  color: #5a5a5a;
+  border-color:#5a5a5a;
 }
 
 button {
@@ -403,16 +459,27 @@ tr{
   }
   .border{
     width: 300px;
-    height: 400px;
+    height: 320px;
+    display: grid;
+  }
+  .cut-border{
+    width: 180px;
+    left: 64px;
+  }
+  .cut-border::after,
+  .cut-border::before {
+    width: 60px;
   }
   .bigfont{
     font-size: 90px;
-    position: absolute;
-    left: 20px;
+    left: 0px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
   }
   .test{
     left: 24%;
-    top: 96%;
+    top: 96.1%;
   }
   .blackbar{
     height: 0px;
@@ -429,7 +496,6 @@ tr{
     width: 100%;
     height: auto;
     box-shadow: 0 3px 10px rgb(0 0 0 / 0.2);
-    
   }
   .aboutimage{
     left:0;
@@ -446,6 +512,12 @@ tr{
     position: static;
     height: auto;
     padding-top: 40px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .abouttextI{
+    position: static;
   }
   .aboutblack{
     position: static;
@@ -666,11 +738,12 @@ tr{
 .navbar {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 50px 40px 50px 20px; /* Add more padding to the right side */
+  justify-content: center;
+/* Add more padding to the right side */
   border-bottom: 1px solid transparent; /* Thin bezel underneath */
   position: fixed;
   top: 0;
+  padding: 25px 0px 25px 0px;
   width: 100%;
   z-index: 999;
   background-color: transparent;
@@ -678,20 +751,19 @@ tr{
   transition: padding 0.3s, border-bottom-color 0.3s, box-shadow 0.3s, background-color 0.3s;
 }
 .navbar.scrolled {
-  background-color: rgba(217, 217, 211, 0.98);
-  padding: 30px 40px 30px 20px; /* Decrease the top padding when scrolled */
+  background-color: rgba(239, 239, 239, 0.98);
+  padding: 7px 0px 7px 0px; /* Decrease the top padding when scrolled */
   border-bottom-color: #ccc; /* Show the thin bezel underneath when scrolled */
   box-shadow: 0 1px 5px rgba(87, 87, 87, 0.2);
 } 
+.navbar.color {
+  background-color: rgba(217, 217, 211, 0.98); /* Change the background color to white */
+}
 .navbar.white-bg {
   background-color: rgba(255, 255, 255, 0.98); /* Change the background color to white */
 }
 
-.logo-container {
-  position: absolute;
-  left: 365px;
-  /* Add any additional styling for the logo container, such as padding, margin, etc. */
-}
+.logo-container 
 
 .logo {
   max-height:35px;
@@ -718,8 +790,8 @@ tr{
 .nav-links {
   list-style: none;
   display: flex;
+  font-family: monospace;
   align-items: center;
-  position: absolute;
   right: 420px;
   opacity: 0;
   transition: 1s opacity 0s ease-in;

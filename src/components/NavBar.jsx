@@ -3,6 +3,7 @@ import '../index.css';
 
 const Navbar = () => {
   const [scrolledSection, setScrolledSection] = useState('');
+  const [color, setColor] = useState(false);
   const [whiteBackground, setWhiteBackground] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -30,6 +31,12 @@ const Navbar = () => {
       setScrolledSection('contact');
     }
 
+    if (scrolledSection === 'frontend' || scrolledSection === 'backend' || scrolledSection === 'contact') {
+      setColor(true);
+    } else {
+      setColor(false);
+    }
+
     if (scrolledSection === 'about' || scrolledSection === 'combination') {
       setWhiteBackground(true);
     } else {
@@ -48,35 +55,37 @@ const Navbar = () => {
   }, [scrolledSection]);
 
   return (
-    <nav className={`navbar ${whiteBackground ? 'white-bg' : ''} ${scrolled ? 'scrolled' : ''}`}>
-      <a href='/' style={{justifyContent:'center', alignItems:'center',display:'flex'}}>
-      <div className="logo-container">
-        {/* Add your logo here */}
-        <div className={`logo ${scrolled ? 'scrolled' : ''}`}>
-              <p className='bigfont' style={{fontSize: '14px'}}>Łukasz Harkot</p>
-        </div>
+    <nav className={`navbar ${whiteBackground ? 'white-bg' : ''} ${color ? 'color' : ''} ${scrolled ? 'scrolled' : ''}`}>
+      <div style={{width: '1150px', display:'flex', alignItems: 'center', justifyContent:'space-between'}}>
+        <a href='/'>
+          <div className="logo-container">
+            <div className={`logo ${scrolled ? 'scrolled' : ''}`}>
+                <p className='bigfont' style={{fontSize: '14px', marginLeft: '2px', marginRight: '2px'}}>Łukasz</p>
+                <p className='bigfont' style={{fontSize: '14px', marginLeft: '2px', marginRight: '2px'}}>Harkot</p>
+            </div>
+          </div>
+        </a>
+        <ul className={`nav-links ${scrolled ? 'scrolled' : ''}`}>
+          <li className={scrolledSection === 'home' ? 'active' : ''}>
+            <a href='#home'>HOME</a>
+          </li>
+          <li className={scrolledSection === 'about' ? 'active' : ''}>
+            <a href='#about'>ABOUT ME</a>
+          </li>
+          <li className={scrolledSection === 'frontend' ? 'active' : ''}>
+            <a href='#frontend'>FRONTEND</a>
+          </li>
+          <li className={scrolledSection === 'backend' ? 'active' : ''}>
+            <a href='#backend'>BACKEND</a>
+          </li>
+          <li className={scrolledSection === 'combination' ? 'active' : ''}>
+            <a href='#combination'>COMBINATION</a>
+          </li>
+          <li className={scrolledSection === 'contact' ? 'active' : ''}>
+            <a href='#contact'>CONTACT</a>
+          </li>
+        </ul>
       </div>
-      </a>
-      <ul className={`nav-links ${scrolled ? 'scrolled' : ''}`} style={{fontFamily: 'monospace'}}>
-        <li className={scrolledSection === 'home' ? 'active' : ''}>
-          <a href='#home'>HOME</a>
-        </li>
-        <li className={scrolledSection === 'about' ? 'active' : ''}>
-          <a href='#about'>ABOUT ME</a>
-        </li>
-        <li className={scrolledSection === 'frontend' ? 'active' : ''}>
-          <a href='#frontend'>FRONTEND</a>
-        </li>
-        <li className={scrolledSection === 'backend' ? 'active' : ''}>
-          <a href='#backend'>BACKEND</a>
-        </li>
-        <li className={scrolledSection === 'combination' ? 'active' : ''}>
-          <a href='#combination'>COMBINATION</a>
-        </li>
-        <li className={scrolledSection === 'contact' ? 'active' : ''}>
-          <a href='#contact'>CONTACT</a>
-        </li>
-      </ul>
     </nav>
   );
 };
