@@ -4,7 +4,7 @@
 
   color-scheme: light dark;
   color: rgba(6, 6, 6, 0.87);
-  background-color: #d9d9d3;
+  background-color: #000000;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -495,6 +495,16 @@ button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
 
+.menubutton{
+  font-size: 30px;
+  transition: color 0.4s ease-in-out;
+  border-radius: 4px;
+  color: rgba(6, 6, 6, 0.87);
+}
+.menubuttonclicked{
+  color: rgba(139, 139, 139, 0.98);
+}
+
 input{
   background-color: white;
   height: 15px;
@@ -941,6 +951,7 @@ tr{
   }
 }
 
+
 .slideInbottomVisable {
   opacity: 1;
 }
@@ -968,6 +979,25 @@ tr{
   animation: contact 3s ease backwards;
 }
 
+@keyframes slideInTop {
+  from {
+    opacity: 0;
+    transform: translateY(-400px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slideIntop {
+  opacity: 0;
+}
+.slideIntop.animated {
+  animation: slideInTop 0.15s ease-out forwards;
+  opacity: 1;
+}
+
 /* Navbar.css */
 .navbar {
   display: flex;
@@ -978,11 +1008,12 @@ tr{
   position: fixed;
   top: 0;
   padding: 25px 0px 25px 0px;
+  height: 45px;
   width: 100%;
   z-index: 999;
   background-color: transparent;
   box-shadow: 0 0px 0px rgba(87, 87, 87, 0.2);
-  transition: padding 0.3s, border-bottom-color 0.3s, box-shadow 0.3s, background-color 0.3s;
+  transition: padding 0.3s, border-bottom-color 0.3s, box-shadow 0.3s, background-color 0.3s, height 0.3s ease-out;
 }
 .navbar.scrolled {
   background-color: rgba(239, 239, 239, 0.98);
@@ -996,8 +1027,18 @@ tr{
 .navbar.white-bg {
   background-color: rgba(255, 255, 255, 0.98); /* Change the background color to white */
 }
+.navbar.expanded {
+  height: 250px;
+}
 
-.logo-container 
+.logo-container{
+  font-family: "Lucida Grande", sans-serif;
+  font-size: 12px;
+  margin-left: 35px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: rgb(29, 29, 29);
+}
 
 .logo {
   max-height:35px;
@@ -1033,16 +1074,13 @@ tr{
 .nav-links.scrolled{
   opacity: 1;
 }
-
 .nav-links li {
   margin-right: 15px;
   transition: font-style 0.4s, font-weight 0.4s;
 }
-
 .nav-links li:last-child {
   margin-right: 0;
 }
-
 .nav-links a {
   text-decoration: none;
   color: #333; /* Adjust the link color as needed */
@@ -1050,14 +1088,77 @@ tr{
   transition: color 0.4s;
   transition: font-style 0.4s, font-weight 0.4s, color 0.4s;
 }
-
 .nav-links li.active a {
   font-style: bold;
   font-weight: 800;
 }
-
 .nav-links a:hover {
   color: #000000;
+}
+
+.mobile-nav{
+  list-style: none;
+  display: flex;
+  font-family: monospace;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0;
+  transition: 1s opacity 0s ease-in;
+  width: 92%;
+  height: 50px;
+  position: static;
+}
+.mobile-nav.scrolled{
+  opacity: 1;
+  position: absolute;
+  top: 5px;
+  z-index: 999;
+}
+
+.mobilenav-links {
+  list-style: none;
+  display: grid;
+  margin-top: 10px;
+  font-family: monospace;
+  align-items: center;
+  right: 420px;
+  opacity: 0;
+  margin-top: 0px;
+  transition: 1s opacity 0s ease-in;
+}
+.mobilenav-links.scrolled{
+  opacity: 1;
+  margin-top: 45px;
+}
+.mobilenav-links li {
+  margin-right: 15px;
+  transition: font-style 0.4s, font-weight 0.4s;
+}
+.mobilenav-links li:last-child {
+  margin-right: 0;
+}
+.mobilenav-links a {
+  text-decoration: none;
+  color: #333; /* Adjust the link color as needed */
+  font-style: normal;
+  transition: color 0.4s;
+  transition: font-style 0.4s, font-weight 0.4s, color 0.4s;
+}
+.mobilenav-links li.active a {
+  font-style: bold;
+  font-weight: 800;
+}
+.mobilenav-links a:hover {
+  color: #000000;
+}
+
+.navtext{
+  color: transparent;
+  transition: 1s color ease-in;
+}
+.navtext.scrolled{
+  color: rgba(6, 6, 6, 0.87);;
+  animation: 2s appearAnimation 0s ease backwards;
 }
 
 .tableButtons{
