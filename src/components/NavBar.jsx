@@ -54,6 +54,15 @@ const Navbar = () => {
   };
 
   useEffect(() => {
+    const updateThemeColor = () => {
+      const navbar = document.querySelector('.navbar');
+      const navbarBackgroundColor = getComputedStyle(navbar).backgroundColor;
+      const themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
+      themeColorMetaTag.setAttribute('content', navbarBackgroundColor);
+    };
+
+    updateThemeColor();
+    
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
