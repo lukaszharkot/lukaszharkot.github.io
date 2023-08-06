@@ -64,7 +64,7 @@ function App() {
       
       {/* About Me */}
       <div id='about' className='about'>
-        <div className='centeredabout aboutbox'>
+        <div className='centeredflex aboutbox'>
           <div className= 'aboutbox'>
             <div className='abouttext'>
               <div className='abouttextI' ref={refs[0]}>
@@ -92,7 +92,7 @@ function App() {
       <div id='frontend' className='frontend'>
         <div className='centered frontendbox'>
           <div className='frontendbox'>
-            <div className='centeredfrontend'>
+            <div className='centeredgrid'>
               <div ref={refs[10]} className={`slideInbottom ${isInViewport[10] ? 'animated' : ''} centered frontendtext`}>
                 <h1 style={{color: '#d9d9d3'}}>Frontend</h1>
               </div>
@@ -126,9 +126,9 @@ function App() {
       </div>
       {/* Backend */}
       <div id='backend' className='backend'>
-        <div className='centered backendbox' style={{position: 'relative'}}>
-          <div className='backendbox' style={{position: 'relative'}}>
-            <div className='centeredbackend'>
+        <div className='centered backendbox'>
+          <div className='backendbox'>
+            <div className='centeredgrid'>
               <div ref={refs[3]} className={`slideInbottom ${isInViewport[3] ? 'animated' : ''} centered backendtext`}>
                 <h1 style={{color: '#d9d9d3'}}>Backend</h1>
               </div>
@@ -164,71 +164,83 @@ function App() {
         </div>
       </div>
       {/* Combination */}
-      <div id='combination' style={{ height: '1500px', width: '100%', justifyContent: 'center', alignItems:'center', display: 'flex',backgroundColor: 'white', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)'}}>
-        <div style={{position: 'relative', width: '1200px', height: '1400px'}}>
-          <div ref={refs[17]} className={`appear ${isInViewport[17] ? 'animated' : ''}`} style={{backgroundColor: 'black', width:' 365px', height: '80px', justifyContent: 'center', alignItems:'center', display: 'flex', top:'6%', left: '34%', position: 'absolute'}}>
-            <h1 style={{color: 'white'}}>Combination</h1>
-          </div>
-          <div ref={refs[18]} className={`appear ${isInViewport[18] ? 'animated' : ''}`} style={{position: 'absolute', top: '11%', left: '42%'}}>
-            <h1 style={{fontSize: '25px'}}>React + FastApi</h1>
-          </div>
-          <div ref={refs[19]} className={`appear ${isInViewport[19] ? 'animated' : ''}`} style={{backgroundColor: 'white', height: '292px', width: '692px', position:'absolute', top: '18%', right: '5%', justifyContent: 'center', alignItems:'center', display: 'flex', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)', border: '4px solid', borderRadius: '20px'}}>
-            <div style={{ height: '200px', width: '500px', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
-              <AddCustomerForm onAdd={AddCustomerHandler}/>
+      <div id='combination' className='combination'>
+        <div className='centered combinationbox'>
+          <div className='combinationbox'>
+            <div className='centeredgrid'>
+              <div ref={refs[17]} className={`appear ${isInViewport[17] ? 'animated' : ''} centered combinationtext`}>
+                <h1 style={{color: 'white'}}>Combination</h1>
+              </div>
+              <div ref={refs[18]} className={`appear ${isInViewport[18] ? 'animated' : ''} centered`}>
+                <h1 style={{fontSize: '25px'}}>React + FastApi</h1>
+              </div>
             </div>
-          </div>
-          <div ref={refs[20]} className={`appearDelayed ${isInViewport[20] ? 'animated' : ''}`} style={{backgroundColor: 'black', height: '300px', width: '350px', position:'absolute', top: '18%', left: '5%', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
-            <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>Add Customer</p>
-          </div>
-          <div ref={refs[21]} className={`appear ${isInViewport[21] ? 'animated' : ''}`} style={{backgroundColor: 'white', height: '492px', width: '692px', position:'absolute', top: '41.5%', left: '5%', justifyContent: 'center', alignItems:'center', display: 'flex', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)', border: '4px solid', borderColor: '#262626', borderRadius: '20px'}}>
-            <div style={{ height: '492px', width: '692px', justifyContent: 'center', display: 'flex',}}>
-              <MyTable data={data}  onDelete={deleteCustomerHandler}/>
+            <div className='centeredaddcustomer'>
+              <div ref={refs[20]} className={`appearDelayed ${isInViewport[20] ? 'animated' : ''} centered addcustomerblack`}>
+                <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>Add Customer</p>
+              </div>
+              <div ref={refs[19]} className={`appear ${isInViewport[19] ? 'animated' : ''} centered addcustomer`}>
+                <div className='addcustomerbox'>
+                  <AddCustomerForm onAdd={AddCustomerHandler}/>
+                </div>
+              </div>
             </div>
-          </div>
-          <div ref={refs[22]} className={`appearDelayed ${isInViewport[22] ? 'animated' : ''}`} style={{backgroundColor: 'black', height: '500px', width: '350px', position:'absolute', top: '41.5%', right: '5%', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
-            <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>Get and inline edit</p>
-          </div>
-          <div ref={refs[23]} className={`appearDelayed ${isInViewport[23] ? 'animated' : ''}`} style={{backgroundColor: 'black', height: '240px', width: '1080px', position:'absolute', top: '79.5%', right: '5%', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
-            <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>Here text fix essa</p>
+            <div className='centeredcustomertable'>
+              <div ref={refs[22]} className={`appearDelayed ${isInViewport[22] ? 'animated' : ''} centered customertableblack`}>
+                <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>Get and inline edit</p>
+              </div>
+              <div ref={refs[21]} className={`appear ${isInViewport[21] ? 'animated' : ''} centered customertable`}>
+                <div className='customertablebox'> {/* testowac bez tego style*/}
+                  <MyTable data={data}  onDelete={deleteCustomerHandler}/>
+                </div>
+              </div>
+            </div>
+            <div className='centered'>
+              <div ref={refs[23]} className={`appearDelayed ${isInViewport[23] ? 'animated' : ''} centered combinationblack`}>
+                <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>Here text fix essa</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div style={{ height: '90px', width: '100%', backgroundColor: 'black', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)'}}></div>
       {/* Contact */}
-      <div id='contact' style={{ height: '850px', width: '100%', justifyContent: 'center', alignItems:'center', display: 'flex', backgroundColor: '#d9d9d3'}}>
-        <div style={{position: 'relative', width: '1200px', height: '700px'}}>
-            <div ref={refs[24]} className={`appear ${isInViewport[24] ? 'animated' : ''}`} style={{ position: 'absolute', top: '11%', left: '37%' , backgroundColor: 'black', width:' 210px', height: '80px', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
-              <h1 style={{color: 'white'}}>Contact</h1>
+      <div id='contact' className='contactme centered'>
+        <div className='contactmebox'>
+            <div className='centered contactmetext'>
+              <div ref={refs[24]} className={`appear ${isInViewport[24] ? 'animated' : ''} centered`} style={{backgroundColor: 'black', width:' 210px', height: '80px'}}>
+                <h1 style={{color: 'white'}}>Contact</h1>
+              </div>
+              <div ref={refs[25]} className={`appear ${isInViewport[25] ? 'animated' : ''} centered`} style={{ height: '80px'}}>
+                <h1 style={{color: 'black', padding: '0 6px'}}>Me</h1>
+              </div>
             </div>
-            <div ref={refs[25]} className={`appear ${isInViewport[25] ? 'animated' : ''}`} style={{ position: 'absolute', top: '11%', left: '54.5%' ,height: '80px', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
-              <h1 style={{color: 'black', padding: '0 6px'}}>Me</h1>
-            </div>
-            <div style={{position:'relative', top: '200px', left:'0', right:'0', margin: '0 auto', width: '600px', height: '450px'}}>
-              <div style={{position:'absolute', top: '20px', left: '0px', display: "flex", justifyContent: 'space-around', alignItems:'center', width: '560px'}}>
-                <div ref={refs[26]} className={`appearDelayed ${isInViewport[26] ? 'animated' : ''}`} style={{position:'absolute', top: '10px', left: '100px'}}>
-                  <CiMap fontSize={'85px'}/>
+            <div className='centeredgridcontact'>
+              <div className='centeredcontact'>
+                <div ref={refs[26]} className={`appearDelayed ${isInViewport[26] ? 'animated' : ''}`}>
+                  <CiMap fontSize={'85px'} style={{marginTop:'15px'}}/>
                 </div>
-                <div>
-                  <p ref={refs[27]} className={`appearDelayed ${isInViewport[27] ? 'animated' : ''}`} style={{position:'absolute', top: '0px', left: '350px', fontFamily: 'monospace', fontSize:'20px'}}><strong>ADDRESS</strong></p>
-                  <p ref={refs[28]} className={`appearMoreDelayed ${isInViewport[28] ? 'animated' : ''}`} style={{position:'absolute', top: '40px', left: '350px',fontFamily: 'monospace', fontSize:'15px'}}>Cracow, Poland</p>
+                <div className='contactinfo'>
+                  <p ref={refs[27]} className={`appearDelayed ${isInViewport[27] ? 'animated' : ''}`} style={{fontFamily: 'monospace', fontSize:'20px'}}><strong>ADDRESS</strong></p>
+                  <p ref={refs[28]} className={`appearMoreDelayed ${isInViewport[28] ? 'animated' : ''} smalltext`} style={{fontFamily: 'monospace'}}>Cracow, Poland</p>
+              </div>
+              </div>
+              <div className='centeredcontact'>
+                <div ref={refs[29]} className={`appear ${isInViewport[29] ? 'animated' : ''}`}>
+                  <CiPhone fontSize={'85px'} style={{marginTop:'15px'}}/>
+                </div>
+                <div className='contactinfo'>
+                  <p ref={refs[30]} className={`appearDelayed ${isInViewport[30] ? 'animated' : ''}`} style={{fontFamily: 'monospace', fontSize:'20px'}}><strong>PHONE NUMBER</strong></p>
+                  <p ref={refs[31]} className={`appear ${isInViewport[31] ? 'animated' : ''} smalltext`} style={{fontFamily: 'monospace'}}>+48 796 248 ***</p>
                 </div>
               </div>
-              <div style={{position:'absolute', top: '150px', left: '0px', display: "flex", justifyContent: 'space-around', alignItems:'center', width: '560px'}}>
-                <div ref={refs[29]} className={`appear ${isInViewport[29] ? 'animated' : ''}`} style={{position:'absolute', top: '10px', left: '100px'}}>
-                  <CiPhone fontSize={'85px'}/>
+              <div className='centeredcontact'>
+                <div ref={refs[32]} className={`appearMoreDelayed ${isInViewport[32] ? 'animated' : ''}`}>
+                  <CiMail fontSize={'85px'} style={{marginTop:'15px'}}/>
                 </div>
-                <div>
-                  <p ref={refs[30]} className={`appearDelayed ${isInViewport[30] ? 'animated' : ''}`} style={{position:'absolute', top: '0px', left: '350px', fontFamily: 'monospace', fontSize:'20px'}}><strong>PHONE NUMBER</strong></p>
-                  <p ref={refs[31]} className={`appear ${isInViewport[31] ? 'animated' : ''}`} style={{position:'absolute', top: '40px', left: '350px',fontFamily: 'monospace', fontSize:'15px'}}>+48 796 248 ***</p>
-                </div>
-              </div>
-              <div style={{position:'absolute', top: '300px', left: '0px', display: "flex", justifyContent: 'space-around', alignItems:'center', width: '560px'}}>
-                <div ref={refs[32]} className={`appearMoreDelayed ${isInViewport[32] ? 'animated' : ''}`} style={{position:'absolute', top: '10px', left: '100px'}}>
-                  <CiMail fontSize={'85px'}/>
-                </div>
-                <div>
-                  <p ref={refs[33]} className={`appear ${isInViewport[33] ? 'animated' : ''}`} style={{position:'absolute', top: '0px', left: '350px', fontFamily: 'monospace', fontSize:'20px'}}><strong>EMAIL</strong></p>
-                  <p ref={refs[34]} className={`appearMoreDelayed ${isInViewport[34] ? 'animated' : ''}`}style={{position:'absolute', top: '40px', left: '350px',fontFamily: 'monospace', fontSize:'15px'}}>lukasz.harkot22@gmail.com</p>
+                <div className='contactinfo'>
+                  <p ref={refs[33]} className={`appear ${isInViewport[33] ? 'animated' : ''}`} style={{fontFamily: 'monospace', fontSize:'20px'}}><strong>EMAIL</strong></p>
+                  <p ref={refs[34]} className={`appearMoreDelayed ${isInViewport[34] ? 'animated' : ''} smalltext`} style={{fontFamily: 'monospace'}}>lukasz.harkot22@gmail.com</p>
                 </div>
               </div>
             </div>
@@ -236,7 +248,7 @@ function App() {
       </div>
       {/* End */}
       <div style={{ height: '160px', width: '100%', backgroundColor: 'black', boxShadow: '0 3px 10px rgb(0 0 0 / 0.2)', position: 'relative', justifyContent: 'center', alignItems:'center', display: 'flex' }}>
-        <p className="created-by" style={{fontFamily: 'monospace', position:'absolute', bottom: '2%', right: '0.5%'}}>© 2023 Łukasz Harkot. All Rights Reserved.</p>
+        <p className="created-by" style={{fontFamily: 'monospace'}}>© 2023 Łukasz Harkot. All Rights Reserved.</p>
         <div style={{height: '50px', width:'200px', justifyContent: 'center', alignItems:'center', display: 'flex'}}>
           <a href='https://www.facebook.com/lukas.harkot/'><AiFillFacebook className='end' style={{fontSize:'40px', padding:'0 5px'}}/></a>
           <a href='https://www.linkedin.com/'><AiFillLinkedin className='end' style={{fontSize:'40px', padding:'0 5px'}}/></a>

@@ -16,7 +16,7 @@ export const AddCustomerForm = ({ onAdd }) => {
     };
 
     return (
-        <form onSubmit={onSubmitHandler} style={{position:'relative'}}>
+        <form className='addform' onSubmit={onSubmitHandler}>
             <Input
                 placeholder = "Name"
                 className="inputform"

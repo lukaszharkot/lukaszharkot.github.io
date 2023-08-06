@@ -17,7 +17,7 @@ function MyTable({data, onDelete}) {
         width: "50px",
       },
       {
-        Header: "Phone Number",
+        Header: "Phone",
         accessor: "phone_number",
       },
       {
