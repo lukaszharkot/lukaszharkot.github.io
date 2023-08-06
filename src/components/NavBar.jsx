@@ -88,19 +88,19 @@ const Navbar = () => {
                   <li className={scrolledSection === 'home' ? 'active' : ''}>
                     <a href='#home'><t className={`navtext ${scrolled ? 'scrolled' : ''}`}>HOME</t></a>
                   </li>
-                  <li className={scrolledSection === 'about' ? 'active' : ''}  style={{ marginTop: '10px'}}>
+                  <li className={scrolledSection === 'about' ? 'active' : ''}  style={{ marginTop: '13px'}}>
                     <a href='#about'><t className={`navtext ${scrolled ? 'scrolled' : ''}`}>ABOUT ME</t></a>
                   </li>
-                  <li className={scrolledSection === 'frontend' ? 'active' : ''}  style={{ marginTop: '10px'}}>
+                  <li className={scrolledSection === 'frontend' ? 'active' : ''}  style={{ marginTop: '13px'}}>
                     <a href='#frontend'><t className={`navtext ${scrolled ? 'scrolled' : ''}`}>FRONTEND</t></a>
                   </li>
-                  <li className={scrolledSection === 'backend' ? 'active' : ''}  style={{ marginTop: '10px'}}>
+                  <li className={scrolledSection === 'backend' ? 'active' : ''}  style={{ marginTop: '13px'}}>
                     <a href='#backend'><t className={`navtext ${scrolled ? 'scrolled' : ''}`}>BACKEND</t></a>
                   </li>
-                  <li className={scrolledSection === 'combination' ? 'active' : ''}  style={{ marginTop: '10px'}}>
+                  <li className={scrolledSection === 'combination' ? 'active' : ''}  style={{ marginTop: '13px'}}>
                     <a href='#combination'><t className={`navtext ${scrolled ? 'scrolled' : ''}`}>COMBINATION</t></a>
                   </li>
-                  <li className={scrolledSection === 'contact' ? 'active' : ''}  style={{ marginTop: '10px'}}>
+                  <li className={scrolledSection === 'contact' ? 'active' : ''}  style={{ marginTop: '13px'}}>
                     <a href='#contact'><t className={`navtext ${scrolled ? 'scrolled' : ''}`}>CONTACT</t></a>
                   </li>
                 </ul>

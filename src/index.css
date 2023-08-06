@@ -4,7 +4,7 @@
 
   color-scheme: light dark;
   color: rgba(6, 6, 6, 0.87);
-  background-color: #000000;
+  background-color: #d9d9d3;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -301,7 +301,7 @@ body {
 
 .combinationtext{
   background-color: black;
-  width: 365px;
+  width: 350px;
   height: 80px;
   margin-top: 30px
 }
@@ -1022,7 +1022,7 @@ tr{
   box-shadow: 0 1px 5px rgba(87, 87, 87, 0.2);
 } 
 .navbar.color {
-  background-color: rgba(217, 217, 211, 0.98); /* Change the background color to white */
+  background-color: rgba(217, 217, 211, 0.98); /* Change the background color to beji */
 }
 .navbar.white-bg {
   background-color: rgba(255, 255, 255, 0.98); /* Change the background color to white */
@@ -1123,12 +1123,11 @@ tr{
   align-items: center;
   right: 420px;
   opacity: 0;
-  margin-top: 0px;
   transition: 1s opacity 0s ease-in;
 }
 .mobilenav-links.scrolled{
   opacity: 1;
-  margin-top: 45px;
+  margin-top: 55px;
 }
 .mobilenav-links li {
   margin-right: 15px;
