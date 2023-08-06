@@ -4,6 +4,7 @@ import { BiMenu } from 'react-icons/bi';
 
 const Navbar = () => {
   const [scrolledSection, setScrolledSection] = useState('');
+  const [test, setTest] = useState('');
   const [color, setColor] = useState(false);
   const [whiteBackground, setWhiteBackground] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -32,6 +33,26 @@ const Navbar = () => {
     } else {
       setScrolledSection('contact');
     }
+
+  if (scrollPosition - 1 < aboutOffset) {
+    setTest('home'); 
+  } else if (scrollPosition - 1 >= aboutOffset && scrollPosition - 1 < frontendOffset) {
+    setTest('about');
+    console.log("about delayed");
+  } else if (scrollPosition - 1 >= frontendOffset && scrollPosition - 1 < backendOffset) {
+    setTest('frontend');
+    console.log("frontend delayed");
+  } else if (scrollPosition - 1 >= backendOffset && scrollPosition - 1 < combinationOffset) {
+    setTest('backend');
+    console.log("backend delayed");
+  } else if (scrollPosition - 1 >= combinationOffset && scrollPosition - 1 < contactOffset) {
+    setTest('combination');
+    console.log("combination delayed");
+  } else {
+    setTest('contact');
+    console.log("contact delayed");
+  }
+
 
     if (scrolledSection === 'frontend' || scrolledSection === 'backend' || scrolledSection === 'contact') {
       setColor(true);
@@ -68,17 +89,17 @@ const Navbar = () => {
   
       let themeColor = defaultColor;
   
-      if (scrolledSection === 'home') {
+      if (test === 'home') {
         themeColor = homeColor;
-      } else if (scrolledSection === 'about') {
+      } else if (test === 'about') {
         themeColor = aboutColor;
-      } else if (scrolledSection === 'frontend') {
+      } else if (test === 'frontend') {
         themeColor = frontendColor;
-      } else if (scrolledSection === 'backend') {
+      } else if (test === 'backend') {
         themeColor = backendColor;
-      } else if (scrolledSection === 'combination') {
+      } else if (test === 'combination') {
         themeColor = combinationColor;
-      } else if (scrolledSection === 'contact') {
+      } else if (test === 'contact') {
         themeColor = contactColor;
       }
   
@@ -93,7 +114,6 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrolledSection]);
-  
 
   const isMobileView = window.innerWidth < 1024;
   const showDropdown = isMobileView && dropdownOpen;
