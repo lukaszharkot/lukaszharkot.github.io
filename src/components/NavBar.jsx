@@ -57,17 +57,43 @@ const Navbar = () => {
     const updateThemeColor = () => {
       const navbar = document.querySelector('.navbar');
       const navbarBackgroundColor = getComputedStyle(navbar).backgroundColor;
+  
+      const defaultColor = 'rgba(239, 239, 239, 0.98)'; // Set the default color
+      const homeColor = 'rgba(239, 239, 239, 0.98)'; // Set the appropriate color
+      const aboutColor = 'rgba(255, 255, 255, 0.98)'; // Set the appropriate color
+      const frontendColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
+      const backendColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
+      const combinationColor = 'rgba(255, 255, 255, 0.98)'; // Set the appropriate color
+      const contactColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
+  
+      let themeColor = defaultColor;
+  
+      if (scrolledSection === 'home') {
+        themeColor = homeColor;
+      } else if (scrolledSection === 'about') {
+        themeColor = aboutColor;
+      } else if (scrolledSection === 'frontend') {
+        themeColor = frontendColor;
+      } else if (scrolledSection === 'backend') {
+        themeColor = backendColor;
+      } else if (scrolledSection === 'combination') {
+        themeColor = combinationColor;
+      } else if (scrolledSection === 'contact') {
+        themeColor = contactColor;
+      }
+  
       const themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
-      themeColorMetaTag.setAttribute('content', navbarBackgroundColor);
+      themeColorMetaTag.setAttribute('content', themeColor);
     };
-
+  
     updateThemeColor();
-    
+  
     window.addEventListener('scroll', handleScroll);
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [scrolledSection]);
+  
 
   const isMobileView = window.innerWidth < 1024;
   const showDropdown = isMobileView && dropdownOpen;
