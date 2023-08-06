@@ -34,18 +34,18 @@ const Navbar = () => {
       setScrolledSection('contact');
     }
 
-  if (scrollPosition - 1 < aboutOffset) {
+  if (scrollPosition - 2 < aboutOffset) {
     setTest('home'); 
-  } else if (scrollPosition - 1 >= aboutOffset && scrollPosition - 1 < frontendOffset) {
+  } else if (scrollPosition - 2 >= aboutOffset && scrollPosition - 2 < frontendOffset) {
     setTest('about');
     console.log("about delayed");
-  } else if (scrollPosition - 1 >= frontendOffset && scrollPosition - 1 < backendOffset) {
+  } else if (scrollPosition - 2 >= frontendOffset && scrollPosition - 2 < backendOffset) {
     setTest('frontend');
     console.log("frontend delayed");
-  } else if (scrollPosition - 1 >= backendOffset && scrollPosition - 1 < combinationOffset) {
+  } else if (scrollPosition - 2 >= backendOffset && scrollPosition - 2 < combinationOffset) {
     setTest('backend');
     console.log("backend delayed");
-  } else if (scrollPosition - 1 >= combinationOffset && scrollPosition - 1 < contactOffset) {
+  } else if (scrollPosition - 2 >= combinationOffset && scrollPosition - 2 < contactOffset) {
     setTest('combination');
     console.log("combination delayed");
   } else {
