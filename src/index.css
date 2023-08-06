@@ -1013,7 +1013,7 @@ tr{
   z-index: 999;
   background-color: transparent;
   box-shadow: 0 0px 0px rgba(87, 87, 87, 0.2);
-  transition: padding 0.3s, border-bottom-color 0.3s, box-shadow 0.3s, height 0.3s ease-out, background-color 0.1s ease-out;
+  transition: padding 0.3s, border-bottom-color 0.3s, box-shadow 0.3s, height 0.3s ease-out, background-color 0.6s ease-out;
 }
 .navbar.scrolled {
   background-color: rgba(239, 239, 239, 0.98);
@@ -1030,6 +1030,39 @@ tr{
 .navbar.expanded {
   height: 250px;
 }
+
+.navbarmobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+/* Add more padding to the right side */
+  border-bottom: 1px solid transparent; /* Thin bezel underneath */
+  position: fixed;
+  top: 0;
+  padding: 25px 0px 25px 0px;
+  height: 45px;
+  width: 100%;
+  z-index: 999;
+  background-color: transparent;
+  box-shadow: 0 0px 0px rgba(87, 87, 87, 0.2);
+  transition: padding 0.3s, border-bottom-color 0.3s, box-shadow 0.3s, height 0.3s ease-out;
+}
+.navbarmobile.scrolled {
+  background-color: rgba(239, 239, 239, 0.98);
+  padding: 7px 0px 7px 0px; /* Decrease the top padding when scrolled */
+  border-bottom-color: #ccc; /* Show the thin bezel underneath when scrolled */
+  box-shadow: 0 1px 5px rgba(87, 87, 87, 0.2);
+} 
+.navbarmobile.color {
+  background-color: rgba(217, 217, 211, 0.98); /* Change the background color to beige */
+}
+.navbarmobile.white-bg {
+  background-color: rgba(255, 255, 255, 0.98); /* Change the background color to white */
+}
+.navbarmobile.expanded {
+  height: 250px;
+}
+
 
 .logo-container{
   font-family: "Lucida Grande", sans-serif;

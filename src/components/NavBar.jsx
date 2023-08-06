@@ -84,9 +84,13 @@ const Navbar = () => {
 
   const isMobileView = window.innerWidth < 1024;
   const showDropdown = isMobileView && dropdownOpen;
+  const isiOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+  const navClassName = isiOS
+    ? `navbarmobile ${whiteBackground ? 'white-bg' : ''} ${color ? 'color' : ''} ${scrolled ? 'scrolled' : ''} ${showDropdown ? 'expanded' : ''}`
+    : `navbar ${whiteBackground ? 'white-bg' : ''} ${color ? 'color' : ''} ${scrolled ? 'scrolled' : ''} ${showDropdown ? 'expanded' : ''}`;
 
   return (
-    <nav className={`navbar ${whiteBackground ? 'white-bg' : ''} ${color ? 'color' : ''} ${scrolled ? 'scrolled' : ''} ${showDropdown ? 'expanded' : ''}`}>
+    <nav className={navClassName}>
         {isMobileView ? (
           // Render the dropdown button and menu for mobile view
           <div style={{justifyContent: 'space-between', width:'100%'}}>
