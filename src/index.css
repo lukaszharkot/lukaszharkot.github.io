@@ -1013,7 +1013,7 @@ tr{
   z-index: 999;
   background-color: transparent;
   box-shadow: 0 0px 0px rgba(87, 87, 87, 0.2);
-  transition: padding 0.3s, border-bottom-color 0.3s, box-shadow 0.3s, background-color 0.3s, height 0.3s ease-out;
+  transition: padding 0.3s, border-bottom-color 0.3s, box-shadow 0.3s, height 0.3s ease-out, background-color 0.4s;
 }
 .navbar.scrolled {
   background-color: rgba(239, 239, 239, 0.98);

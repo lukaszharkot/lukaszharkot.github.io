@@ -4,11 +4,19 @@ import { BiMenu } from 'react-icons/bi';
 
 const Navbar = () => {
   const [scrolledSection, setScrolledSection] = useState('');
-  const [test, setTest] = useState('');
   const [color, setColor] = useState(false);
   const [whiteBackground, setWhiteBackground] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [themeColor, setThemeColor] = useState('');
+
+  const defaultColor = 'rgba(239, 239, 239, 0.98)'; // Set the default color
+  const homeColor = 'rgba(239, 239, 239, 0.98)'; // Set the appropriate color
+  const aboutColor = 'rgba(255, 255, 255, 0.98)'; // Set the appropriate color
+  const frontendColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
+  const backendColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
+  const combinationColor = 'rgba(255, 255, 255, 0.98)'; // Set the appropriate color
+  const contactColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
 
   const handleScroll = () => {
     const homeOffset = document.getElementById('home').offsetTop;
@@ -22,48 +30,34 @@ const Navbar = () => {
 
     if (scrollPosition < aboutOffset) {
       setScrolledSection('home');
+      setThemeColor(homeColor);
+      setWhiteBackground(false);
+      setColor(false);
     } else if (scrollPosition >= aboutOffset && scrollPosition < frontendOffset) {
       setScrolledSection('about');
+      setThemeColor(aboutColor);
+      setWhiteBackground(true);
+      setColor(false);
     } else if (scrollPosition >= frontendOffset && scrollPosition < backendOffset) {
       setScrolledSection('frontend');
+      setThemeColor(frontendColor);
+      setWhiteBackground(false);
+      setColor(true);
     } else if (scrollPosition >= backendOffset && scrollPosition < combinationOffset) {
       setScrolledSection('backend');
+      setThemeColor(backendColor);
+      setWhiteBackground(false);
+      setColor(true);
     } else if (scrollPosition >= combinationOffset && scrollPosition < contactOffset) {
       setScrolledSection('combination');
+      setThemeColor(combinationColor);
+      setWhiteBackground(true);
+      setColor(false);
     } else {
       setScrolledSection('contact');
-    }
-
-  if (scrollPosition - 2 < aboutOffset) {
-    setTest('home'); 
-  } else if (scrollPosition - 2 >= aboutOffset && scrollPosition - 2 < frontendOffset) {
-    setTest('about');
-    console.log("about delayed");
-  } else if (scrollPosition - 2 >= frontendOffset && scrollPosition - 2 < backendOffset) {
-    setTest('frontend');
-    console.log("frontend delayed");
-  } else if (scrollPosition - 2 >= backendOffset && scrollPosition - 2 < combinationOffset) {
-    setTest('backend');
-    console.log("backend delayed");
-  } else if (scrollPosition - 2 >= combinationOffset && scrollPosition - 2 < contactOffset) {
-    setTest('combination');
-    console.log("combination delayed");
-  } else {
-    setTest('contact');
-    console.log("contact delayed");
-  }
-
-
-    if (scrolledSection === 'frontend' || scrolledSection === 'backend' || scrolledSection === 'contact') {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-
-    if (scrolledSection === 'about' || scrolledSection === 'combination') {
-      setWhiteBackground(true);
-    } else {
+      setThemeColor(contactColor);
       setWhiteBackground(false);
+      setColor(true);
     }
 
     const isScrolled = scrollPosition > 0;
@@ -76,33 +70,6 @@ const Navbar = () => {
 
   useEffect(() => {
     const updateThemeColor = () => {
-      const navbar = document.querySelector('.navbar');
-      const navbarBackgroundColor = getComputedStyle(navbar).backgroundColor;
-  
-      const defaultColor = 'rgba(239, 239, 239, 0.98)'; // Set the default color
-      const homeColor = 'rgba(239, 239, 239, 0.98)'; // Set the appropriate color
-      const aboutColor = 'rgba(255, 255, 255, 0.98)'; // Set the appropriate color
-      const frontendColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
-      const backendColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
-      const combinationColor = 'rgba(255, 255, 255, 0.98)'; // Set the appropriate color
-      const contactColor = 'rgba(217, 217, 211, 0.98)'; // Set the appropriate color
-  
-      let themeColor = defaultColor;
-  
-      if (test === 'home') {
-        themeColor = homeColor;
-      } else if (test === 'about') {
-        themeColor = aboutColor;
-      } else if (test === 'frontend') {
-        themeColor = frontendColor;
-      } else if (test === 'backend') {
-        themeColor = backendColor;
-      } else if (test === 'combination') {
-        themeColor = combinationColor;
-      } else if (test === 'contact') {
-        themeColor = contactColor;
-      }
-  
       const themeColorMetaTag = document.querySelector('meta[name="theme-color"]');
       themeColorMetaTag.setAttribute('content', themeColor);
     };
