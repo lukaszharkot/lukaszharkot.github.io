@@ -1,44 +1,127 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { useTable } from "react-table";
-import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
+import { AiOutlineDelete, AiOutlineEdit, AiOutlineSave } from "react-icons/ai";
+import { InputEdit } from "./InputEdit";
 
-function MyTable({data, onDelete}) {
+function MyTable({ data, onDelete, onEdit }) {
+  const [isEditMode, setIsEditMode] = useState(false)
+  const [nameValue, setNameValue] = useState('');
+  const [surnameValue, setSurnameValue] = useState('');
+  const [emailValue, setEmailValue] = useState('');
+  const [phoneNumberValue, setPhoneNumberValue] = useState('');
+
+  const handleEditClick = (row) => {
+    setIsEditMode(row.id);
+    setNameValue(row.values.name);
+    setSurnameValue(row.values.surname);
+    setPhoneNumberValue(row.values.phone_number);
+    setEmailValue(row.values.email);
+  };
+
+  const handleSaveClick = (row) => {
+    if (isEditMode === row.id) {
+      setIsEditMode(false);
+      const updatedData = {
+        name: nameValue,
+        surname: surnameValue,
+        email: emailValue,
+        phone_number: phoneNumberValue,
+      };
+      onEdit(data[row.id].id, updatedData);
+    }
+  };
+  
+  const handleNameChange = (event) => {
+    setNameValue(event.target.value);
+  };
+
+  const handleSurnameChange = (event) => {
+    setSurnameValue(event.target.value);
+  };
+
+  const handleEmailChange = (event) => {
+    setEmailValue(event.target.value);
+  };
+
+  const handlePhoneNumberChange = (event) => {
+    setPhoneNumberValue(event.target.value);
+  };
 
   const columns = React.useMemo(
     () => [
       {
         Header: "Name",
         accessor: "name",
-        width: "50px",
+        Cell: ({ row }) =>
+        isEditMode === row.id ? (
+            <InputEdit
+              value={nameValue}
+              handleChange={handleNameChange}
+            />
+          ) : (
+            row.values.name
+          ),
       },
       {
         Header: "Surname",
         accessor: "surname",
-        width: "50px",
-      },
-      {
-        Header: "Phone",
-        accessor: "phone_number",
+        Cell: ({ row }) =>
+          isEditMode === row.id ? (
+            <InputEdit
+              value={surnameValue}
+              handleChange={handleSurnameChange}
+            />
+          ) : (
+            row.values.surname
+          ),
       },
       {
         Header: "Email",
         accessor: "email",
+        Cell: ({ row }) =>
+          isEditMode === row.id ? (
+            <InputEdit
+              value={emailValue}
+              handleChange={handleEmailChange}
+            />
+          ) : (
+            row.values.email
+          ),
+      },
+      {
+        Header: "Phone",
+        accessor: "phone_number",
+        Cell: ({ row }) =>
+          isEditMode === row.id ? (
+            <InputEdit
+              value={phoneNumberValue}
+              handleChange={handlePhoneNumberChange}
+            />
+          ) : (
+            row.values.phone_number
+          ),
       },
       {
         Header: " ",
         Cell: ({ row }) => (
-          <div >
-            <a style={{ marginRight: "15px" }}>
-              <AiOutlineEdit className="tableButtons" />
-            </a>
-            <a onClick={() => onDelete(row.original.id)}>
+          <div>
+            {isEditMode === row.id ? (
+              <a onClick={() => handleSaveClick(row)}>
+                <AiOutlineSave className="tableButtons" />
+              </a>
+            ) : (
+              <a onClick={() => handleEditClick(row)}>
+                <AiOutlineEdit className="tableButtons" />
+              </a>
+            )}
+            <a onClick={() => onDelete(row.original.id)} style={{marginLeft: '10px'}}>
               <AiOutlineDelete className="tableButtons" />
             </a>
           </div>
         ),
       },
     ],
-    []
+    [isEditMode, nameValue, surnameValue, emailValue, phoneNumberValue]
   );
 
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =

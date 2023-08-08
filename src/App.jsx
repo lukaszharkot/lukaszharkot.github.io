@@ -3,7 +3,7 @@ import React, { useState, useEffect, useRef }  from 'react'
 import { AiOutlineDown, AiOutlineUp, AiFillLinkedin, AiFillFacebook, AiFillTwitterSquare} from 'react-icons/ai';
 import { CiMap, CiPhone, CiMail } from 'react-icons/ci';
 
-import { createCustomer, fetchCustomers, deleteCustomer } from './methods';
+import { createCustomer, fetchCustomers, deleteCustomer, editCustomer } from './methods';
 
 import useIsInViewport from './components/IsInViewport';
 import { AddCustomerForm } from './components/AddForm';
@@ -36,6 +36,17 @@ function App() {
       })
       .catch((error) => {
         console.error("Error deleting customer:", error);
+      });
+  };
+
+  const editCustomerHandler = (customerId, updatedData) => {
+    editCustomer(customerId, updatedData)
+      .then(() => {
+        console.log("Successfully edited customer with id:", customerId, "\nNew customer data:", updatedData);
+        fetchCustomers().then(setData);
+      })
+      .catch((error) => {
+        console.error("Error editing customer:", error);
       });
   };
 
@@ -191,7 +202,7 @@ function App() {
               </div>
               <div ref={refs[21]} className={`appear ${isInViewport[21] ? 'animated' : ''} centered customertable`}>
                 <div className='customertablebox'> {/* testowac bez tego style*/}
-                  <MyTable data={data}  onDelete={deleteCustomerHandler}/>
+                  <MyTable data={data} onDelete={deleteCustomerHandler} onEdit={editCustomerHandler}/>
                 </div>
               </div>
             </div>
