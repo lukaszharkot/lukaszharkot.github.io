@@ -92,7 +92,7 @@ function App() {
             </div>
             <div ref={refs[1]} className={`slideInright ${isInViewport[1] ? 'animated' : ''} aboutblack centered`}>
               <div className='abouttextbox'>
-                <p ref={refs[2]} className={`slideInbottom ${isInViewport[2] ? 'animated' : ''}`} style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>I am currently studying Social Informatics at AGH University of Science and Technology in Cracow. I am planning a career as a web developer. In my free time I like to refine my passions. One of which is web development. <br/><br/>Nie wiem co tu napisać, siemano</p>
+                <p ref={refs[2]} className={`slideInbottom ${isInViewport[2] ? 'animated' : ''}`} style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>I am currently studying Social Informatics at AGH University of Science and Technology in Cracow. I am planning a career as a web developer. In my free time I like to refine my passions. One of which is web development. <br/><br/>//Add skills later</p>
               </div>
             </div>
           </div>
@@ -208,7 +208,7 @@ function App() {
             </div>
             <div className='centered'>
               <div ref={refs[23]} className={`appearDelayed ${isInViewport[23] ? 'animated' : ''} centered combinationblack`}>
-                <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>Here text fix essa</p>
+                <p style={{fontFamily: 'monospace', color: '#b3b3b3', textAlign: 'justify'}}>General description</p>
               </div>
             </div>
           </div>
